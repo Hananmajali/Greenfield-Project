@@ -7,6 +7,7 @@ var Promise=require('promise');
 var db = require("./Database/config.js");
 var Movie= require("./Database/Model/Movie.js");
 var User= require("./Database/Model/User.js");
+var Comment= require("./Database/Model/Comment.js");
 var util= require("./lib/utility.js");
 var app=express();
 var port = process.env.PORT||8080;
@@ -123,8 +124,13 @@ record.save( function(error, newMovie){
   User.findOne({username: username} , function(err, user){
     if (err)
      console.log('error in find =========>', err)
-
+    console.log("hanan",newMovie.title)
+    // if(user.movies.indexOf(newMovie.id)=== -1){
       user.movies.push(newMovie._id);
+    // } else{
+    //   res.send(user)
+    // } 
+      
      console.log('user in find =========>', user.movies)
      User.findOneAndUpdate({username: username} ,{movies: user.movies},function(err , updated){
       if(err)
@@ -194,6 +200,24 @@ app.listen(port,function(err){
 });
 
 module.exports = app;
+
+
+//trying the data base:
+
+var comment1 = new Comment ({
+ id:1,
+ comment: "ya hala feko sharftona fgkghftkhfykl"
+ });
+
+comment1.save(function(error, result){
+   if(error){
+   throw error;
+   }
+   else{
+   console.log("record added");
+    }
+});
+
 
 
 //trying the database
