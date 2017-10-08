@@ -7,7 +7,7 @@ angular.module('myapp')
       this.url="https://www.youtube.com/embed/"
       this.result=this.url+this.key
       this.trailer_string=this.result.toString()
-      console.log(this.result)
+      console.log("res",this.result)
     }
 	},
 	bindings:{

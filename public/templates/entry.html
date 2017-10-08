@@ -11,36 +11,11 @@
        
       <button class="btn btn-warning btn-md" ng-click='$ctrl.favorite($ctrl.movie.id,$ctrl.movie.title,$ctrl.movie.poster_path)'> <span class="glyphicon glyphicon-star"></span> Favorite </button>
 
-      <h2> <span></span> <span style="color: #EA7117; font-weight: bold;">{{$ctrl.movie.title}}</span></h2>
+      
     </div>
 
     <br>
-    <div>
-      <span style="color:#EA7117"> Gener: </span><span style="color: black">{{$ctrl.movie.genres[0].name}}</span>
-    </div>  
-    <br>
-    <div>
-      <span style="color:#EA7117"> Release Date: </span> <span style="color: black">{{$ctrl.movie.release_date}} </span>
-    </div>
-
-    <br>
-    <div>
-      <span style="color:#EA7117"> Popularity: </span> <span style="color: black">{{$ctrl.movie.popularity}} </span>
-    </div>
-
-  <!-- <div> <span style="color:#EA7117"> Overview: </span><span style="color:black">{{$ctrl.movie.overview}}</span>
-  </div>   -->
-  
-  <br>
-  <div>
-    <span style="color:#EA7117"> Vote-Count: </span> <span style="color:black">{{$ctrl.movie.vote_count}}</span>
-  </div>   
-
-  <br>
-  <div> <span style="color:#EA7117"> Vote-Avg: </span><span style="color:black"> {{$ctrl.movie.vote_average}} </span>
-  </div>
-  <br>
-  <br>
+    
 </div>
 </div>
 
@@ -55,3 +30,62 @@
 </style>
 
 
+
+
+
+
+
+<img ng-src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+
+
+
+
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<img class="col-sm-6" height="200px" width="200px" ng-src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}}>
+<div class="col-sm-6">
+
+  <h4> <span></span> <span style="color: #EA7117; font-weight: bold;">{{$ctrl.movie.title}}</span></h4>
+      <span style="color:#EA7117"> Gener: </span><span style="color: black">{{$ctrl.movie.genres[0].name}}</span>
+    </div>  
+    <br>
+    <div>
+      <span style="color:#EA7117"> Release Date: </span> <span style="color: black">{{$ctrl.movie.release_date}} </span>
+    </div>
+
+    <br>
+    <div>
+      <span style="color:#EA7117"> Popularity: </span> <span style="color: black">{{$ctrl.movie.popularity}} </span>
+    </div><br>
+  <div>
+    <span style="color:#EA7117"> Vote-Count: </span> <span style="color:black">{{$ctrl.movie.vote_count}}</span>
+  </div><br>
+  <div> <span style="color:#EA7117"> Vote-Avg: </span><span style="color:black"> {{$ctrl.movie.vote_average}} </span>
+</div>
+
+
+
+
+
+
+        
+        
+      </div>
+      <div class="modal-body">
+
+
+
+      </div>
+      <div class="modal-footer">
+        <div class="navbar-left"><input id="comment" type="text" name="comment" placeholder="Type your comment"><button ng-click="$ctrl.addcomment()">Submit</button></div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
