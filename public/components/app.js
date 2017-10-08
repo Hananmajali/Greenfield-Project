@@ -9,7 +9,7 @@ angular.module('myapp',[])
               		cache: false,
               		dataType: 'json',
               		success: function(user){
-              			console.log(user);
+              			console.log("user",user);
               			x.user=user;
               		}
               	});
@@ -36,7 +36,7 @@ angular.module('myapp',[])
 				dataType: 'json',
 				success: function(data){
               	x.movie[0]=data
-              	console.log(x.movie)
+              	console.log("Move",x.movie)
               	$.ajax({
               		async:false,
               		url: "https://api.themoviedb.org/3/movie/"+x.id+"/videos?api_key=5d2afcf0b3a09621c2e2a3961a8a7024&language=en-US",
@@ -44,7 +44,7 @@ angular.module('myapp',[])
               		dataType: 'json',
               		success: function(data2){
               			x.trailer[0]=data2
-              			console.log(x.trailer)
+              			console.log("trallier",x.trailer)
               		}
               	})
               }

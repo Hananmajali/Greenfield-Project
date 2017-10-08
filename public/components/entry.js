@@ -1,10 +1,27 @@
 angular.module('myapp')
 .component('entry',{
 	controller:function(){
+
+		var that=this;
 		var session=undefined;
+		this.addcomment=function () {
+			var comment = $('#comment').val();
+		
+			$.ajax({
+				type:'POST',
+				url:"http://127.0.0.1:8080/comment",
+				dataType:'json',
+				async:false,
+				data:{comment:comment,title:that.movie.title},
+				success:function (comments) {
+					that.comments=comments
+				}
+
+			})
+		}
 		this.favorite=function(id,title,poster_path){
 			//prepare object to send it to node server
-			var obj={id:id,title:title,poster_path:poster_path};
+			var  obj={id:id,title:title,poster_path:poster_path};
 			//checking for username
 		    $.ajax({
               		async:false,
