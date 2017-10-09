@@ -71,7 +71,7 @@ app.post('/comment',function(req,res){
   var comment = req.body.comment;
   var title = req.body.title;
   var username=req.body.username;
-  console.log("comment" , coverter)//
+ 
  
 
 
@@ -168,7 +168,7 @@ record.save( function(error, newMovie){
   User.findOne({username: username} , function(err, user){
     if (err)
      console.log('error in find =========>', err)
-    console.log("hanan",newMovie.title)
+   // console.log("hanan",newMovie.title)
      //if(user.movies.indexOf(newMovie.title)=== -1){
       user.movies.push(newMovie._id);
     //} else{
@@ -299,16 +299,3 @@ module.exports = app;
 //    console.log("record added");
 //     }
 // });
-
-
-
-
-
-
-
-
-
-
-
-
-

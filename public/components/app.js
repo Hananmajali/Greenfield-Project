@@ -16,6 +16,89 @@ angular.module('myapp',[])
 		console.log(this.user)
 		this.trailer=[]; 
 		this.movie=[];
+		this.fake=[
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		}
+
+		];
 		this.id=undefined;
 		this.change=function(){
 			//convert the name to id

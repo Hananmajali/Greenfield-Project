@@ -1,0 +1,13 @@
+#item{
+	padding: 20px;
+}
+#navbar{
+	background-color: rgba(200,200,200,0.5);
+}
+body{
+	background: url('https://i.ytimg.com/vi/gKIFk8BJsDc/maxresdefault.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	 background-attachment: fixed;
+
+}

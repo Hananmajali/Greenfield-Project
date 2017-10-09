@@ -2,7 +2,7 @@ var db = require('../config');
 var mongoose = require('mongoose');
 var Promise = require('bluebird');
 var User=require('./User');
-var Movie=require('./Movie');
+var Movie=require('./movieList');
 
 //create our comment model 
 var commentSchema = mongoose.Schema({

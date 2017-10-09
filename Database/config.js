@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var movieList = require("./Model/movieList.js")
+var coverter = require("../convert.js").convertor;
 mongoURI = 'mongodb://localhost/movies'; 
 mongoose.connect(mongoURI);
 
@@ -7,8 +8,8 @@ mongoose.connect(mongoURI);
 
 (function () {
 	movieList.find().exec(function(err, data){
-		//console.log('data : ', data.length )
 		if (data.length === 0) {
+		console.log('data : ', data.length )
 			for (var i = 0; i < coverter.length; i++) {
 				var record = new movieList ({
 					title:coverter[i].original_title,
@@ -18,8 +19,8 @@ mongoose.connect(mongoURI);
 					if(error){console.log(error)}
 						else{
 
-      }
-  })
+						}
+					})
 			}
 
 		}
