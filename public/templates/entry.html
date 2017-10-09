@@ -77,9 +77,11 @@
         
       </div>
       <div class="modal-body">
+        <div id="comment" ng-repeat="comment in $ctrl.comments">
 
+        {{comment.comment}}
 
-
+      </div>
       </div>
       <div class="modal-footer">
         <div class="navbar-left"><input id="comment" type="text" name="comment" placeholder="Type your comment"><button ng-click="$ctrl.addcomment()">Submit</button></div>

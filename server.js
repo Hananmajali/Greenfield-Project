@@ -81,7 +81,9 @@ app.post('/comment',function(req,res){
       throw err;
     }else{
       // var x = movie["title"];
-      var com = new Comment({
+     ///user.movies.push(newMovie._id);
+
+      var com = new Comment ({
         comment:comment,
         movies:movie._id,
         title : movie["title"],
@@ -91,9 +93,9 @@ app.post('/comment',function(req,res){
       com.save(function(err, newMovie){
        if(err){console.log(err)}
         
-
          Comment.find({title : newMovie.title }, function(err, newMovie) {
 
+//console.log('new movie sss',newMovie)
           var arr = [];
 
           for (var i = 0; i < newMovie.length; i++) {
