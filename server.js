@@ -70,9 +70,7 @@ app.post('/login', function(req, res) {
 app.post('/comment',function(req,res){
   var comment = req.body.comment;
   var title = req.body.title;
-  var username=req.body.username;
- 
- 
+  var username=req.session.username;
 
 
   movieList.findOne({title:title})
