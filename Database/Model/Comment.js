@@ -8,8 +8,10 @@ var Movie=require('./Movie');
 var commentSchema = mongoose.Schema({
 	id: Number,
 	comment: { type: String, required: true },
-	users:[{type:mongoose.Schema.Types.ObjectId,ref:'User'}],
-	movies:[{type:mongoose.Schema.Types.ObjectId,ref:'Movie'}]
+	users:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
+	movies:{type:mongoose.Schema.Types.ObjectId,ref:'movieList'},
+	title : String
+
 });
 
 var Comment = mongoose.model('Comment' , commentSchema);
