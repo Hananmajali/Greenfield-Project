@@ -6,13 +6,22 @@ angular.module('myapp')
 		var session=undefined;
 		this.addcomment=function () {
 			var comment = $('#comment').val();
-		
+			$.ajax({
+              		async:false,
+              		url: "http://127.0.0.1:8080/session",
+              		cache: false,
+              		dataType: 'json',
+              		success: function(user){
+              			session=user;
+              		}
+           	});
+           	
 			$.ajax({
 				type:'POST',
 				url:"http://127.0.0.1:8080/comment",
 				dataType:'json',
 				async:false,
-				data:{comment:comment,title:that.movie.title},
+				data:{comment:comment,title:that.movie.title , username:session},
 				success:function (comments) {
 					that.comments=comments
 				}

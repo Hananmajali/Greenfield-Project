@@ -123,8 +123,9 @@ record.save( function(error, newMovie){
   User.findOne({username: username} , function(err, user){
     if (err)
      console.log('error in find =========>', err)
-
+      // console.log("newMovie",newMovie,"user",user)
       user.movies.push(newMovie._id);
+      console.log("user.movies",user.movies)
      console.log('user in find =========>', user.movies)
      User.findOneAndUpdate({username: username} ,{movies: user.movies},function(err , updated){
       if(err)
@@ -233,8 +234,15 @@ module.exports = app;
 // });
 
 
+// ["59db624c4200e81a08de7e60", car
+//  "59db630d4200e81a08de7e61", car
+//  "59db635b4200e81a08de7e62"] m
 
 
+// ["59db624c4200e81a08de7e60",
+// "59db630d4200e81a08de7e61",
+// "59db635b4200e81a08de7e62",
+// "59db64364200e81a08de7e63"
 
 
 
