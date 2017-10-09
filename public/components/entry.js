@@ -21,9 +21,9 @@ angular.module('myapp')
 				url:"http://127.0.0.1:8080/comment",
 				dataType:'json',
 				async:false,
-				data:{comment:comment,title:that.movie.title , username:session},
+				data:{comment:comment,title:that.movie.title},
 				success:function (comments) {
-					console.log(comments)
+
 					that.comments=comments
 				}
 
