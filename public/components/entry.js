@@ -15,7 +15,7 @@ angular.module('myapp')
               			session=user;
               		}
            	});
-           	
+
 			$.ajax({
 				type:'POST',
 				url:"http://127.0.0.1:8080/comment",
@@ -23,6 +23,7 @@ angular.module('myapp')
 				async:false,
 				data:{comment:comment,title:that.movie.title , username:session},
 				success:function (comments) {
+					console.log(comments)
 					that.comments=comments
 				}
 

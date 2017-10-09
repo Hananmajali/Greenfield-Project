@@ -1,12 +1,15 @@
 var request = require('request');
 var express=require('express');
+var coverter = require('./convert.js').convertor;
 var bodyParser=require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var Promise=require('promise');
 var db = require("./Database/config.js");
 var Movie= require("./Database/Model/Movie.js");
+var movieList = require("./Database/Model/movieList.js")
 var User= require("./Database/Model/User.js");
+var Comment= require("./Database/Model/Comment.js");
 var util= require("./lib/utility.js");
 var app=express();
 var port = process.env.PORT||8080;
@@ -48,6 +51,8 @@ app.post('/login', function(req, res) {
     } else {
 
       if(password==user.password){
+
+        
         req.session.username = user.username;
         console.log('--------------------> login ', req.session.username)
         res.sendFile(__dirname+'/index.html');
@@ -62,7 +67,46 @@ app.post('/login', function(req, res) {
 
 });
 
+app.post('/comment',function(req,res){
+  var comment = req.body.comment;
+  var title = req.body.title;
+  var username=req.body.username;
+ 
+ 
 
+
+  movieList.findOne({title:title})
+  .exec(function(err,movie){//
+    if(err){
+      throw err;
+    }else{
+      // var x = movie["title"];
+      var com = new Comment({
+        comment:comment,
+        movies:movie._id,
+        title : movie["title"],
+        users:username
+
+      })
+      com.save(function(err, newMovie){
+       if(err){console.log(err)}
+        
+
+         Comment.find({title : newMovie.title }, function(err, newMovie) {
+
+          var arr = [];
+
+          for (var i = 0; i < newMovie.length; i++) {
+            arr.push(newMovie[i])
+          }
+          res.send(arr);
+        });
+
+     });
+    }
+
+  })
+})
 
 app.get('/logout', function(req, res){
     req.session.username = null;
@@ -71,6 +115,7 @@ app.get('/logout', function(req, res){
 });
 
 app.get('/signUp',function(req, res) {
+
   res.sendFile(__dirname+'/views/signUp.html');
 });
 
@@ -123,9 +168,13 @@ record.save( function(error, newMovie){
   User.findOne({username: username} , function(err, user){
     if (err)
      console.log('error in find =========>', err)
-      // console.log("newMovie",newMovie,"user",user)
+   // console.log("hanan",newMovie.title)
+     //if(user.movies.indexOf(newMovie.title)=== -1){
       user.movies.push(newMovie._id);
-      console.log("user.movies",user.movies)
+    //} else{
+       res.send(user)
+    // } 
+      
      console.log('user in find =========>', user.movies)
      User.findOneAndUpdate({username: username} ,{movies: user.movies},function(err , updated){
       if(err)
@@ -197,6 +246,24 @@ app.listen(port,function(err){
 module.exports = app;
 
 
+//trying the data base:
+
+// var comment1 = new Comment ({
+//  id:1,
+//  comment: "ya hala feko sharftona fgkghftkhfykl"
+//  });
+
+// comment1.save(function(error, result){
+//    if(error){
+//    throw error;
+//    }
+//    else{
+//    console.log("record added");
+//     }
+// });
+
+
+
 //trying the database
 
 // var Movie1 = new Movie ({ 
@@ -232,23 +299,3 @@ module.exports = app;
 //    console.log("record added");
 //     }
 // });
-
-
-// ["59db624c4200e81a08de7e60", car
-//  "59db630d4200e81a08de7e61", car
-//  "59db635b4200e81a08de7e62"] m
-
-
-// ["59db624c4200e81a08de7e60",
-// "59db630d4200e81a08de7e61",
-// "59db635b4200e81a08de7e62",
-// "59db64364200e81a08de7e63"
-
-
-
-
-
-
-
-
-
