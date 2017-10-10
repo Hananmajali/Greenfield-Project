@@ -1,11 +1,13 @@
 var request = require('request');
 var express=require('express');
+var coverter = require('./convert.js').convertor;
 var bodyParser=require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var Promise=require('promise');
 var db = require("./Database/config.js");
 var Movie= require("./Database/Model/Movie.js");
+var movieList = require("./Database/Model/movieList.js")
 var User= require("./Database/Model/User.js");
 var Comment= require("./Database/Model/Comment.js");
 var util= require("./lib/utility.js");
@@ -49,6 +51,8 @@ app.post('/login', function(req, res) {
     } else {
 
       if(password==user.password){
+
+        
         req.session.username = user.username;
         console.log('--------------------> login ', req.session.username)
         res.sendFile(__dirname+'/index.html');
@@ -63,7 +67,46 @@ app.post('/login', function(req, res) {
 
 });
 
+app.post('/comment',function(req,res){
+  var comment = req.body.comment;
+  var title = req.body.title;
+  var username=req.body.username;
+  console.log("comment" , coverter)//
+ 
 
+
+  movieList.findOne({title:title})
+  .exec(function(err,movie){//
+    if(err){
+      throw err;
+    }else{
+      // var x = movie["title"];
+      var com = new Comment({
+        comment:comment,
+        movies:movie._id,
+        title : movie["title"],
+        users:username
+
+      })
+      com.save(function(err, newMovie){
+       if(err){console.log(err)}
+        
+
+         Comment.find({title : newMovie.title }, function(err, newMovie) {
+
+          var arr = [];
+
+          for (var i = 0; i < newMovie.length; i++) {
+            arr.push(newMovie[i])
+          }
+          res.send(arr);
+        });
+
+     });
+    }
+
+  })
+})
 
 app.get('/logout', function(req, res){
     req.session.username = null;
@@ -72,6 +115,7 @@ app.get('/logout', function(req, res){
 });
 
 app.get('/signUp',function(req, res) {
+
   res.sendFile(__dirname+'/views/signUp.html');
 });
 
@@ -125,10 +169,10 @@ record.save( function(error, newMovie){
     if (err)
      console.log('error in find =========>', err)
     console.log("hanan",newMovie.title)
-    // if(user.movies.indexOf(newMovie.id)=== -1){
+     //if(user.movies.indexOf(newMovie.title)=== -1){
       user.movies.push(newMovie._id);
-    // } else{
-    //   res.send(user)
+    //} else{
+       res.send(user)
     // } 
       
      console.log('user in find =========>', user.movies)
@@ -204,19 +248,19 @@ module.exports = app;
 
 //trying the data base:
 
-var comment1 = new Comment ({
- id:1,
- comment: "ya hala feko sharftona fgkghftkhfykl"
- });
+// var comment1 = new Comment ({
+//  id:1,
+//  comment: "ya hala feko sharftona fgkghftkhfykl"
+//  });
 
-comment1.save(function(error, result){
-   if(error){
-   throw error;
-   }
-   else{
-   console.log("record added");
-    }
-});
+// comment1.save(function(error, result){
+//    if(error){
+//    throw error;
+//    }
+//    else{
+//    console.log("record added");
+//     }
+// });
 
 
 
