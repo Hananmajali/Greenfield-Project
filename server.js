@@ -103,7 +103,7 @@ app.post('/comment',function(req,res){
         });
 
      });
-    }
+    }//
 
   })
 })
@@ -152,6 +152,9 @@ app.post('/add',function(req,res){
  
   if(req.session.username){ 
   //prepare record 
+  Movie.findOne({title:req.body.title},function(err,added){
+    if(!added){
+
   var record = new Movie ({
     id:req.body.id,
     title:req.body.title,
@@ -168,13 +171,8 @@ record.save( function(error, newMovie){
   User.findOne({username: username} , function(err, user){
     if (err)
      console.log('error in find =========>', err)
-   // console.log("hanan",newMovie.title)
-     //if(user.movies.indexOf(newMovie.title)=== -1){
+
       user.movies.push(newMovie._id);
-    //} else{
-       res.send(user)
-    // } 
-      
      console.log('user in find =========>', user.movies)
      User.findOneAndUpdate({username: username} ,{movies: user.movies},function(err , updated){
       if(err)
@@ -193,10 +191,10 @@ else // if the user not logged in
   console.log ('>>>>>>>>>> rejected');
   res.redirect('/login')
 }
+ })
+}
+
 });
-
-
-
 
 
 
@@ -213,10 +211,11 @@ app.get('/favoritelist',function(req,res){
 app.get('/favorit', function(req,res){
   
   console.log('hi')
-  User.find({username:req.session.username},"movies",function(err,newMovie){
+  User.find({username:req.session.username},function(err,newMovie){
     if(err)
       throw err;
-    console.log(newMovie[0].movies)
+    console.log('hanan',newMovie)
+
     var favoritarr=[];
      for (var i=0;i<newMovie[0].movies.length;i++){
         Movie.find({_id:newMovie[0].movies[i]},function(err,result){
