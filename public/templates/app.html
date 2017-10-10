@@ -8,8 +8,8 @@
 <list movie='$ctrl.movie' trailer='$ctrl.trailer' user="$ctrl.user" />
 </div>
 <div>
-	<div id="item" ng-repeat="fakev in $ctrl.fake" class="col-sm-3">
-		<img ng-src="{{fakev.img}}">
+	<div  id="item" ng-repeat="fakev in $ctrl.fake" class="col-sm-3">
+		<img class="img" ng-src="{{fakev.img}}">
 		{{$ctrl.movie[0]}}
 	</div>
 </div>

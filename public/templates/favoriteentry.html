@@ -1,7 +1,8 @@
 <center> <div>
   <h3> <span></span> <span id="font" style="font-family: courier; color:#EA7117 ; font-weight: bold; font-size: 22px;">{{$ctrl.movie.title}}</span></h3>
   <div>
-   <img class="img-rounded" src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} width="150" height="250" />
+   <img class=" img-rounded" src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} width="150" height="250" />
+   <button ng-click="Remove($ctrl.movie.title)">Remove</button>
   </div>
 </center>
 

@@ -35,7 +35,7 @@
 
 
 
-<img ng-src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<img ng-src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} type="button" class=" btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -77,8 +77,8 @@
         
       </div>
       <div class="modal-body">
-        <div id="comment" ng-repeat="comment in $ctrl.comments">
-
+        <div id="comment" class="comment" ng-repeat="comment in $ctrl.comments">
+        <h4>Name:{{comment.users}}</h4><br>
         {{comment.comment}}
 
       </div>
