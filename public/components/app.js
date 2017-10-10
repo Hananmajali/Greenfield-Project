@@ -96,6 +96,22 @@ angular.module('myapp',[])
 			rating:'5'
 
 
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
+		},
+		{
+			title:'Cars',
+			img:'http://image.tmdb.org/t/p/w185/AqE126KXLcT3wwmeM3HtlKqyGze.jpg',
+			video:'',
+			rating:'5'
+
+
 		}
 
 		];
