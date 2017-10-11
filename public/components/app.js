@@ -68,7 +68,7 @@ angular.module('myapp',[])
 		}
 		this.listMovie = [];
 		var rand ;
-		while(x.listMovie.length < 12) {
+		while(x.listMovie.length < 4) {
 			rand = Math.floor(Math.random() * (100000 - 1)) + 1
 			$.ajax({
 					async:false,
