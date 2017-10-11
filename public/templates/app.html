@@ -7,35 +7,49 @@
 <div>
 <list movie='$ctrl.movie' trailer='$ctrl.trailer' user="$ctrl.user" />
 </div>
+
+
+
 <div>
-<!-- 	<div  id="item" ng-repeat="fakev in $ctrl.listMovie" class="col-sm-3">
-		<img height="390" width="230"  class="img" ng-src={{"http://image.tmdb.org/t/p/w185/"+fakev.poster_path}}>
-		
-	</div> -->
-	<entry result="$ctrl.trailer_string"></entry>
-
-</div>
 
 
-
-<div  id="item" ng-repeat="fakev in $ctrl.listMovie" class="col-sm-3">
-
-<div >
-
-    <div class="hovereffect">
-        <img height="390" width="230"  class="img" ng-src={{"http://image.tmdb.org/t/p/w185/"+fakev.poster_path}}>
-        <div class="overlay">
-            <h2>Information</h2>
-            <h3 class="info"><font color="white">Title: {{fakev.original_title}}</font></h3>
-        </div>
-    </div>
-</div>
-</div>
-
-
-<div class="container">
-  <img src="img_avatar.png" alt="Avatar" class="image" style="width:100%">
+<div class="container col-sm-3" ng-repeat="fakev in $ctrl.listMovie">
+  <img height="390" width="230" ng-src={{"http://image.tmdb.org/t/p/w185/"+fakev.poster_path}}  class="img image" >
   <div class="middle">
     <div class="text">John Doe</div>
   </div>
 </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div>
+
+	<div  id="item" ng-repeat="fakev in $ctrl.listMovie" class="col-sm-3 container">
+		<img height="390" width="230"  class="image" ng-src={{"http://image.tmdb.org/t/p/w185/"+fakev.poster_path}}>
+
+		  <div class="middle">
+    <div class="text">John Doe</div>
+  </div>
+	</div>
+	<entry result="$ctrl.trailer_string"></entry>
+
+</div> -->
+
+
+<!-- 
+
+<div class="container">
+  <img src="img_avatar.png" alt="Avatar" class="img image" style="width:100%">
+  <div class="middle">
+    <div class="text">John Doe</div>
+  </div>
+</div> -->

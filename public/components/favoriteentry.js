@@ -9,7 +9,7 @@ controller:function(){
     	  dataType: 'json',
     	  data:title
     })
-     
+     location.reload();
 	}
 
 },
