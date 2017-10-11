@@ -224,6 +224,11 @@ app.get('/favorit', function(req,res){
         console.log('hiiiiiiiiiiii')
         console.log(result)
         favoritarr.push(result[0])
+         for(var i=0 ; i< favoritarr.length; i++){
+          if(favoritarr[i]===null || favoritarr[i] === undefined){
+           favoritarr.splice(i,1)
+          }
+        }
       })
      }
      
