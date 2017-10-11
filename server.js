@@ -180,10 +180,8 @@ app.post('/add',function(req,res){
             if(err){
               throw err
             } else{
-              console.log('hanan',user.movies.indexOf(movie._id))
-              var indexOfmovie = user.movies.indexOf(movie._id)
-              user.movies.splice(indexOfmovie,1)
-              res.send("go away")
+              
+              res.send(user)
             }
           })
         }
