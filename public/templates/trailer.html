@@ -1,16 +1,36 @@
   <center><div class="row">
   	<br>
   	<br>
-  	<object id="obj"
+
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-admin">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Movie trailer</h4>
+      </div>
+      <div class="modal-footer">
+          <center>	<object id="obj"
   	data={{$ctrl.trailer_string}} >
-  </object>
+  </object></center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 </div>
 </center>
 
 <style>
 
 #obj{
-	width:80%;
+	width:100%;
 	height: 600px;
 }
 

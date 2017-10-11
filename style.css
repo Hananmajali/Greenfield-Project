@@ -2,17 +2,17 @@
 	padding: 20px;
 }
 .img{
-    box-shadow: 0 0 35px blue;
+    box-shadow: 0 0 35px red;
     border-radius: 25px;
 
 }
 #navbar{
-	background-color: rgba(0,0,255,0.5);
+	background-color: rgba(255, 94, 31, 0.9);
   color:white;
-  box-shadow: 0 0 50px blue;
+  box-shadow: 0 0 50px yellow;
 }
 body{
-	background: url('https://i.ytimg.com/vi/gKIFk8BJsDc/maxresdefault.jpg');
+	background: url('https://ak0.picdn.net/shutterstock/videos/16143640/thumb/1.jpg?i10c=img');
 	background-size: cover;
 	background-repeat: no-repeat;
 	 background-attachment: fixed;
@@ -42,10 +42,10 @@ body{
 
 }
 .textonimage{
-  color: white;
+  color: rgba(255,0,0,0.8);;
   font-size: 90px;
   text-shadow: 0 0 50px blue;
-  background-color: 
+  font-family: Comic Sans MS;
 }
 #text2{
   background-color: rgba(0,0,0,0.5)
@@ -57,4 +57,139 @@ body{
   padding: 5px;
   padding-left: 10px;
   margin: 25px;
+    box-shadow: 0 0 50px green; 
 }
+.modal-header{
+  box-shadow: 0 0 50px red; 
+  border-color: blue;
+    color:white;
+  background-color: rgba(0,0,255,0.8);
+  padding: 5px;
+  padding-left: 10px;
+}
+#name{
+  margin-left: 80px;
+  padding-left:5px;
+  margin: 5px;
+  background-color: rgba(0,255,0,0.5);
+  border-radius: 25px;
+}
+.img2{
+  padding: 25px;
+  border-radius: 10px 20px;
+}
+
+.modal-body {
+
+    max-height: 500px;
+    overflow: auto;
+}
+#commenttext{
+  padding: 10px;
+  margin-left: 80px;
+  border-radius: 25px;
+  background-color: rgba(0,255,0,0.3);
+}
+.commentimg{
+  margin-top: 10px;
+}
+body .modal-admin {
+    /* new custom width */
+    width: 80%;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    /*margin-left: -375px;*/
+}
+
+/* ddddfoisjflksdjfkljsdklfjs*/
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+.hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.6);
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transform: translate(460px, -100px) rotate(180deg);
+  -ms-transform: translate(460px, -100px) rotate(180deg);
+  transform: translate(460px, -100px) rotate(180deg);
+  -webkit-transition: all 0.2s 0.4s ease-in-out;
+  transition: all 0.2s 0.4s ease-in-out;
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hovereffect a.info {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid #fff;
+  margin: 50px 0 0 0;
+  background-color: transparent;
+  -webkit-transform: translateY(-200px);
+  -ms-transform: translateY(-200px);
+  transform: translateY(-200px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.hovereffect a.info:hover {
+  box-shadow: 0 0 5px #fff;
+}
+
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+
+.hovereffect:hover h2 {
+  -webkit-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.hovereffect:hover a.info {
+  transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+
+

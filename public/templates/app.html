@@ -8,8 +8,23 @@
 <list movie='$ctrl.movie' trailer='$ctrl.trailer' user="$ctrl.user" />
 </div>
 <div>
-	<div  id="item" ng-repeat="fakev in $ctrl.fake" class="col-sm-3">
-		<img class="img" ng-src="{{fakev.img}}">
-		{{$ctrl.movie[0]}}
+	<div  id="item" ng-repeat="fakev in $ctrl.listMovie" class="col-sm-3">
+		<img height="390" width="230"  class="img" ng-src={{"http://image.tmdb.org/t/p/w185/"+fakev.poster_path}}>
+		<!-- {{fakev.original_title}} -->
 	</div>
+	<entry result="$ctrl.trailer_string"></entry>
+
+</div>
+
+
+
+
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <div class="hovereffect">
+        <img class="img-responsive" src="http://placehold.it/350x200" alt="">
+        <div class="overlay">
+            <h2>Hover effect 2</h2>
+            <a class="info" href="#">link here</a>
+        </div>
+    </div>
 </div>

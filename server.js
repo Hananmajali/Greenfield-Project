@@ -161,6 +161,38 @@ app.post('/add',function(req,res){
     poster_path:req.body.poster_path
   });
 
+
+  app.post('/delete', function(req,res){
+  var title2=Object.keys(req.body)[0];
+  var username2= req.session.username;
+  // console.log('hanan',username)
+  Movie.findOne({title:title2},function(err,movie){
+    if(err){
+      throw err;
+    }else{
+      console.log('hanan',movie)
+      Movie.remove({_id:movie._id},function(err,result){
+        if(err){
+          console.log(err)
+        }else{
+          console.log('hjdsg')
+          User.findOne({username:username2},function(err,user){
+            if(err){
+              throw err
+            } else{
+              console.log('hanan',user.movies.indexOf(movie._id))
+              var indexOfmovie = user.movies.indexOf(movie._id)
+              user.movies.splice(indexOfmovie,1)
+              res.send("go away")
+            }
+          })
+        }
+      })
+
+   }
+  })
+})//
+
 //add it to database
 record.save( function(error, newMovie){
   var username = req.session.username;
