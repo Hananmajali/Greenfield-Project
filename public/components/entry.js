@@ -2,8 +2,13 @@ angular.module('myapp')
 .component('entry',{
 	controller:function(){
 
+
+
 		var that=this;
 		var session=undefined;
+
+	
+		
 		this.addcomment=function () {
 			var comment = $('#comment').val();
 		

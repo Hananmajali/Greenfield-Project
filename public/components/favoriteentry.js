@@ -9,6 +9,7 @@ controller:function(){
     	  dataType: 'json',
     	  data:title
     })
+     
 	}
 
 },
